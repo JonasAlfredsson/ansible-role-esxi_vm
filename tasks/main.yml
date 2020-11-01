@@ -1,0 +1,11 @@
+---
+- name: Install programs useful for a machine that is a VM on an ESXi host
+  become: true
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - open-vm-tools
